@@ -13,3 +13,5 @@ GPT是GUID partition table的缩写。磁盘使用LBA（Logic Block Address）�
 ##系统的启动
 ###BIOS启动
 BIOS找到第一个扇区运行里面的系统引导程序（Boot Loader），这个程序让用户可以：1、选择不同的启动选项；2、直接加载内核文件，启动系统；3、引导至其他启动引导程序（基于此功能可以实现多操作系统）
+###UEFI启动
+UEFI是一个小型操作系统，由C语言编写（因此可以实现通过TCP/IP上网）
