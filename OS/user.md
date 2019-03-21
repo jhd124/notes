@@ -5,3 +5,8 @@
 * chgrp：修改文件所属用户组 chgrp groupName file
 * chown：修改文件拥有者 chown owner file
 * chmod：修改文件权限 chmod rwx file
+
+##目录权限
+r：查看该目录下的内容
+w：改动目录结构，也就是在目录下新建、删除，重命名、移动
+x：进入该目录使之成为工作目录
