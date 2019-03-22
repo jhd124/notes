@@ -19,3 +19,4 @@
 存放第三方辅助软件
 ##/var
 ##/usr
+UNIX Software Resource的缩写，是放软件的，类似于windows下的c:\Windows + c:\Program Files\。FHS要求此目录下必须含有 bin、lib、local、sbin、share五个目录。
