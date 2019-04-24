@@ -1,0 +1,9 @@
+{
+  "name": "zen-observable",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "zen-observable": "^0.8.14"
+  }
+}
