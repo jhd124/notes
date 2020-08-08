@@ -1,6 +1,16 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const SplitByPathPlugin = require("webpack-split-by-path");
+const MyExampleWebpackPlugin = require("./plugins/example");
+class HelloWorldPlugin {
+    apply(compiler) {
+      compiler.hooks.done.tap('Hello World Plugin', (
+        stats /* stats is passed as an argument when done hook is tapped.  */
+      ) => {
+        console.log('Hello World!', stats);
+      });
+    }
+  }
 module.exports = {
   // JavaScript 执行入口文件
   entry: './main.js',
@@ -14,16 +24,27 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-            
-            use: ['css-loader'],
-        })
+        use: ['css-loader'],
+        // use: ExtractTextPlugin.extract({
+        // })
+      },
+      {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: ["babel-loader"]
       }
     ]
   },
   plugins: [
-      new ExtractTextPlugin({
-          filename: `[name]_[contenthash:8].css`,
-      })
-  ]
+    //   new ExtractTextPlugin({
+    //       filename: `[name]_[contenthash:8].css`,
+    //   }),
+    //   new SplitByPathPlugin(
+    //     [{ name: 'vendor', path: __dirname + '/node_modules' }],
+    //     { ignore: [__dirname + '/node_modules/css-loader'] }
+    //   ),
+    //   new MyExampleWebpackPlugin()
+    new HelloWorldPlugin()
+  ],
+  devtool: "source-map"
 };
